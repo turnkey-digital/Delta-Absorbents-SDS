@@ -13,49 +13,7 @@ function IndexPage({ page, seo, title, json_ld, products }) {
     <section className="root-container">
       <Header seo={seo} title={title} json_ld={json_ld} />
       <section className="responsive-container homepage-container">
-        <h1>All Products</h1>
-        <table>
-          <thead>
-            <tr>
-              <td>Product Information:</td>
-              <td>Product Image:</td>
-              <td>Actions:</td>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map(product => (
-              <tr key={product.id}>
-                <td>
-                  <h4>{product.title.rendered}</h4>
-                  <strong>{product.acf.sub_title}</strong>
-                  <div className="body_copy" dangerouslySetInnerHTML={createMarkup(product.acf.body_copy)}></div>
-                </td>
-                <td><img className="productImage" src={product.acf.product_image.url} /></td>
-                <td>
-                  <ul>
-                    <li>
-                      <Link href={`product?productID=${product.id}`}>
-                        <a>View</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={`product?productID=${product.id}&action=print`}>
-                        <a>Print</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={`product?productID=${product.id}&action=download`}>
-                        <a>Download</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-              // console.log(product)
-            ))}
 
-          </tbody>
-        </table>
         <style jsx>{`
         .homepage-container {
           display: flex;
@@ -102,24 +60,7 @@ function IndexPage({ page, seo, title, json_ld, products }) {
 }
 
 IndexPage.getInitialProps = async ({ req }) => {
-  const pageData = await fetch('https://deltaadsorbents.com/wp-json/wp/v2/pages/10')
-  const pageJSON = await pageData.json()
 
-  const formData = await fetch('https://deltaadsorbents.com/wp-json/frm/v2/forms/1/fields')
-  const formJSON = await formData.json()
-  const formFields = Object.keys(formJSON).map(i => formJSON[i])
-
-  const allProducts = await fetch('https://deltaadsorbents.com/wp-json/wp/v2/products?per_page=100')
-  const productsJSON = await allProducts.json()
-
-  return {
-    page: pageJSON,
-    title: pageJSON.yoast_title,
-    json_ld: JSON.stringify(pageJSON.yoast_json_ld),
-    seo: pageJSON.yoast_meta,
-    form: formFields,
-    products: productsJSON
-  }
 }
 
 
