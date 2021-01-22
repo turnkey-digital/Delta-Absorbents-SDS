@@ -11,9 +11,9 @@ import createMarkup from '../functions/createMarkup'
 function IndexPage({ page, seo, title, json_ld, products }) {
   return (
     <section className="root-container">
-      <Header seo={seo} title={title} json_ld={json_ld}/>
+      <Header seo={seo} title={title} json_ld={json_ld} />
       <section className="responsive-container homepage-container">
-        <h1>All Products</h1>  
+        <h1>All Products</h1>
         <table>
           <thead>
             <tr>
@@ -53,10 +53,10 @@ function IndexPage({ page, seo, title, json_ld, products }) {
               </tr>
               // console.log(product)
             ))}
-            
+
           </tbody>
         </table>
-      <style jsx>{`
+        <style jsx>{`
         .homepage-container {
           display: flex;
           justify-content: space-between;
@@ -102,16 +102,16 @@ function IndexPage({ page, seo, title, json_ld, products }) {
 }
 
 IndexPage.getInitialProps = async ({ req }) => {
-  const pageData = await fetch('https://hydrosilintl.com/wp-json/wp/v2/pages/10')
+  const pageData = await fetch('https://deltaadsorbents.com/wp-json/wp/v2/pages/10')
   const pageJSON = await pageData.json()
-  
-  const formData = await fetch('https://hydrosilintl.com/wp-json/frm/v2/forms/1/fields')
+
+  const formData = await fetch('https://deltaadsorbents.com/wp-json/frm/v2/forms/1/fields')
   const formJSON = await formData.json()
   const formFields = Object.keys(formJSON).map(i => formJSON[i])
 
-  const allProducts = await fetch('https://hydrosilintl.com/wp-json/wp/v2/products?per_page=100')
+  const allProducts = await fetch('https://deltaadsorbents.com/wp-json/wp/v2/products?per_page=100')
   const productsJSON = await allProducts.json()
- 
+
   return {
     page: pageJSON,
     title: pageJSON.yoast_title,

@@ -18,7 +18,7 @@ export default class App extends React.Component {
     pdfExportComponent;
     static async getInitialProps({ query: { productID = 301, action } }) {
         const productRequest = await fetch(
-            `https://delta.server9.turnkeydigital.dev/wp-json/wp/v2/specs/${productID}`
+            `https://deltaadsorbents.com/wp-json/wp/v2/specs/${productID}`
         )
         const productJSON = await productRequest.json()
         const actionURL = action
