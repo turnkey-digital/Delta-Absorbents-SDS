@@ -8,10 +8,9 @@ import fetch from 'isomorphic-unfetch'
 import Header from '../components/global/Header'
 import createMarkup from '../functions/createMarkup'
 
-function IndexPage({ page, seo, title, json_ld, products }) {
+function IndexPage() {
   return (
     <section className="root-container">
-      <Header seo={seo} title={title} json_ld={json_ld} />
       <section className="responsive-container homepage-container">
 
         <style jsx>{`
@@ -57,10 +56,6 @@ function IndexPage({ page, seo, title, json_ld, products }) {
       </section>
     </section>
   )
-}
-
-IndexPage.getInitialProps = async ({ req }) => {
-
 }
 
 
