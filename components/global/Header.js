@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 // Dependancies
 var borderStyles = '1px solid black'
+var fontFamily = "Arial,sans-serif";
 
 function Header({ seo, title, json_ld }) {
     return (
