@@ -5,7 +5,7 @@ import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..
 
 // Dependancies
 var borderStyles = '1px solid black'
-var fontFamily = "Arial,sans-serif";
+
 
 function Header({ seo, title, json_ld }) {
     return (
