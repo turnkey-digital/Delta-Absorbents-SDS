@@ -103,6 +103,16 @@ export default class App extends React.Component {
                 </PDFExport>
 
                 <style jsx>{`
+          div {
+            font-family: "DejaVu Sans", "Arial", sans-serif;
+            font-size: 12px;
+        }
+
+            @font-face {
+                font-family: "DejaVu Sans";
+                src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans.ttf") format("truetype");
+            }
+          
           .post-body {
             display:flex;
             align-items: flex-start;
